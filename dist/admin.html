@@ -1061,7 +1061,7 @@
       if (!href) {
         return '';
       }
-      if (/^(#|\/(?!\/)|\.\.?(\\/|$))/i.test(href)) {
+      if (/^(#|\/(?!\/)|\.\.?(\/|$))/i.test(href)) {
         return href;
       }
       try {
@@ -2084,6 +2084,11 @@
           applyLang();
           renderList();
           updateSelectionSummary();
+          // DaisyUI dropdown stays open via :focus-within on the .dropdown container.
+          // Must blur ALL focusable elements inside (including the <ul tabindex="0">),
+          // otherwise the dropdown remains visible even after clicking an option.
+          btn.closest('.dropdown')?.querySelectorAll('[tabindex]').forEach(el => el.blur());
+          document.activeElement?.blur();
         });
       });
 

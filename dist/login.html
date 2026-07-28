@@ -254,6 +254,8 @@
         btn.addEventListener('click', () => {
           localStorage.setItem('lang', btn.dataset.lang);
           applyLang();
+          // Close dropdown by removing focus
+          document.activeElement?.blur();
         });
       });
       elements.password.focus();
