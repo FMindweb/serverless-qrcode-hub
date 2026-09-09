@@ -1,7 +1,7 @@
 # serverless-qrcode-hub
 
 [中文](#-中文) | [English](#-english)
-
+9/9/2026 增加功能性二维码生成 WIFI 导航 名片
 ---
 
 ## 🇨🇳 中文
